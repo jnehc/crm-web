@@ -5,11 +5,11 @@
       <title>Contacts</title>
  </head>
  <body>
- <!-- can write ruby here -->
-<p>Main menu</p>
+ <h1>All Contacts</h1>
 <ul>
-  <li><a href="/contacts">View all contacts</a></li>
-  <!-- please complete me with links to other actions -->
+<% @contacts.each do |contact| %>
+  <li><%= contact.first_name %> <%= contact.last_name %></li>
+<% end %>
 </ul>
  </body>
  </html>
