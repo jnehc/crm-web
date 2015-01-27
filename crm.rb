@@ -1,5 +1,7 @@
+require_relative 'rolodex'
 require 'sinatra'
 require_relative 'contact'
+
 
 
 get '/' do
