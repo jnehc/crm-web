@@ -15,6 +15,9 @@ end
 
 
 get '/contacts/new' do
-	erb :new
+	erb :new_contact
 end
 
+# post '/contacts' do
+#   puts params
+# end
