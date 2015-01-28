@@ -1,0 +1,4 @@
+ body {    background-image: url("paper.gif"); background-color: #cccccc;}
+ .wrap { display: inline; width: 900px; clear: both;}
+ .col1 {float: right; margin: 0; padding: 0 25px; background-color: red;}
+ .aside {float: left; width: 30%; }
