@@ -13,11 +13,18 @@ new_contact = Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rocksta
 
 
 
-get "/contacts/1000" do
-  @contact = @@rolodex.find(1000)
+# get "/contacts/1000" do
+#   @contact = @@rolodex.find(1000)
+#   erb :show_contact
+# end
+# #create a new route for view/show_contact
+
+
+get "/contacts/:id" do
+  @contact = @@rolodex.find(params[:id].to_i)
   erb :show_contact
 end
-
+#create more general version of above
 
 get "/contacts/:id" do
   @contact = @@rolodex.find(params[:id].to_i)
@@ -27,19 +34,18 @@ get "/contacts/:id" do
     raise Sinatra::NotFound
   end
 end
+#404
+
 
 get '/erasetest' do
     erb :erasetest
 end
 
 get '/' do
-	  @crm_app_name = "Address Book"
+	  @crm_app_name = "My Address Book"
 	  erb :index
 end
 
-get '/index3' do
-	  erb :index3
-end
 
 get '/contacts' do
 	erb :contacts
@@ -50,11 +56,11 @@ get '/contacts/new' do
 	erb :new_contact
 end
 
-post '/contacts' do
-  new_contact = Contact.new(first_name, params[:last_name], params[:email], params[:note])
-  $rolodex.add_contact(new_contact)
-   redirect to('/contacts')
-end
+# post '/contacts' do
+#   new_contact = Contact.new(first_name, params[:last_name], params[:email], params[:note])
+#   $rolodex.add_contact(new_contact)
+#    redirect to('/contacts')
+# end
 
 
-#   ##    #
+

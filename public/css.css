@@ -1,71 +1,100 @@
  
-html, body, header, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, b, u, i, center, ul, li {
-    	margin: 0;
-    	padding: 0;
-    	border: 0;
-    	font-size: 100%;
-    	font: inherit;
-    	vertical-align: baseline;
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, b, u, i, center, ul, li {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
 }
 
 
 
 
-/* ------------------*/
+
+
+
+h1 {
+        font-size: 15px;
+        font-weight: 700;
+        border-bottom: 1px solid #DDD;
+        margin: 0 0 .6em 0;
+        padding: 0 0 5px 0;
+}
+
+h2 {
+        font-size: 135%
+}
+h3 { margin-top: 10px; font-size: 90%;}
+
+/*navcol 250
+contentcol 650px*/
+
+
+
 
 
 
 body {
-    background-image: url('public/bacc_greylinen.jpg')repeat;
+    background-image: url("bacc_strip_pink2.gif");
+     background-repeat: repeat-x;
     background-color: #fff;
-    background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top; 
 }
 
- header {
-    padding-top: 20px; 
-    height:80px; 
-    background-color:#c3c3c3;
+header {
+    margin: 0;
+    padding-left: 20px;
+    width:100%;
+    height:100px; 
 }
 
  .wrap { 
     display: inline; 
     clear: both; 
-    padding-top: 60px;
+    width: 100%;
 }
 
  .aside { 
     float: left; 
-    padding-top: 24px;
-    width: 10%; 
-    padding-left: 12px;
-    height: 700px;
+    margin: 200px 0 0 100px;
+    width:10%;
 
 }
 
   .col1 {
-    float: left; 
-    padding-top: 24px;
-    margin-left:24px;
-    border:1px dotted #999;
+    float: left;
+    margin-top:200px;
+    padding-top: 0;
+    width: 660px; 
+    }
+
+
+footer {    
+    clear:both; 
+    padding-top:40px; 
+    /* background-color: #e7eeee; */
+    font-weight:900; 
+    font-size: 12px; 
+    font-color:#c60; 
+    height: 400px;
+    text-align:center;
+    border:red;
+}   
+
+footer p {
+    color: #fff;
+    font-weight:900; 
+    font-size: 14px; 
+    text-align:center;
+}
 
 
 
 
- }
 
-
-
-
-div.img {
-   width:219px;
-   height:210px;
-   background-image:url('grandpa.jpg');
-    }​
-
-
-
+/* -------list madness -----------*/
 
 
 
@@ -78,28 +107,9 @@ li {
         
 }
 
+#sitenav li {display: inline; font-size:10px;}
 
 
-footer {    
-    clear:both; 
-    padding-top:40px; 
-    background-color: #666;
-    font-weight:900; 
-    font-size: 12px; 
-    font-color:#c60; 
-    height: 100px;
-    
-}   
-
-footer.ul, footer.li {
-    padding-left: 40px; 
-    color: #666;
-    font-weight:900; 
-    font-size: 11px; 
-    font-color:#333; 
-    text-align:center;
-}
-/* footer {display:none;} */
 
 .current_time {
     font-family: Arial; 
@@ -129,13 +139,12 @@ h1, p, ul, li {
     padding-left: 10%; 
 }
 
-.aside ul li a, .aside a:hover {
+.aside a, .aside a:hover {
     font-family: Arial,sans-serif;
     font-size: 14px;
     font-color: #b54848;
     font-weight:900;
-    line-height: 24px
-    ;
+    line-height: 24px;
 
 }
 
@@ -151,4 +160,14 @@ h1, p, ul, li {
          url('/3dumb-webfont.svg#3dumbregular') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+
+p, h1, h2, h3 {
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.bookie {text-size: 140px; padding-left:25%;}
+
+.bookie-inline {
+    display:inline; text-size:72px;
 }
