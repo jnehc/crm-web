@@ -1,4 +1,154 @@
- body {    background-image: url("paper.gif"); background-color: #cccccc;}
- .wrap { display: inline; width: 900px; clear: both;}
- .col1 {float: right; margin: 0; padding: 0 25px; background-color: red;}
- .aside {float: left; width: 30%; }
+ 
+html, body, header, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, b, u, i, center, ul, li {
+    	margin: 0;
+    	padding: 0;
+    	border: 0;
+    	font-size: 100%;
+    	font: inherit;
+    	vertical-align: baseline;
+}
+
+
+
+
+/* ------------------*/
+
+
+
+body {
+    background-image: url('public/bacc_greylinen.jpg')repeat;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top; 
+}
+
+ header {
+    padding-top: 20px; 
+    height:80px; 
+    background-color:#c3c3c3;
+}
+
+ .wrap { 
+    display: inline; 
+    clear: both; 
+    padding-top: 60px;
+}
+
+ .aside { 
+    float: left; 
+    padding-top: 24px;
+    width: 10%; 
+    padding-left: 12px;
+    height: 700px;
+
+}
+
+  .col1 {
+    float: left; 
+    padding-top: 24px;
+    margin-left:24px;
+    border:1px dotted #999;
+
+
+
+
+ }
+
+
+
+
+div.img {
+   width:219px;
+   height:210px;
+   background-image:url('grandpa.jpg');
+    }​
+
+
+
+
+
+
+ul {    
+        margin:0;
+}
+
+li {    
+        list-style-type: none; 
+        
+}
+
+
+
+footer {    
+    clear:both; 
+    padding-top:40px; 
+    background-color: #666;
+    font-weight:900; 
+    font-size: 12px; 
+    font-color:#c60; 
+    height: 100px;
+    
+}   
+
+footer.ul, footer.li {
+    padding-left: 40px; 
+    color: #666;
+    font-weight:900; 
+    font-size: 11px; 
+    font-color:#333; 
+    text-align:center;
+}
+/* footer {display:none;} */
+
+.current_time {
+    font-family: Arial; 
+    font-size: 11px;
+}
+
+
+/* -------fonts -----------*/
+
+
+h1, p, ul, li {
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+
+ h1.fancypants {
+    color: #003; 
+    text-decoration: none; 
+    font-family: '3dumb', sans-serif; 
+    font-size: 28px; 
+    line-height:32px;
+    padding-left: 10%; 
+}
+
+.aside ul li a, .aside a:hover {
+    font-family: Arial,sans-serif;
+    font-size: 14px;
+    font-color: #b54848;
+    font-weight:900;
+    line-height: 24px
+    ;
+
+}
+
+
+
+@font-face {
+    font-family: '3dumbregular';
+    src: url('/3dumb-webfont.eot');
+    src: url('/3dumb-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/3dumb-webfont.woff2') format('woff2'),
+         url('/3dumb-webfont.woff') format('woff'),
+         url('/3dumb-webfont.ttf') format('truetype'),
+         url('/3dumb-webfont.svg#3dumbregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
