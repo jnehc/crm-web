@@ -71,7 +71,9 @@ footer p {
 
 /* -------list madness -----------*/
 
-
+ul {
+    margin-left: 35px;
+}
 li {    
         list-style-type: none; 
 }
