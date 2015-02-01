@@ -1,71 +1,49 @@
  
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, b, u, i, center, ul, li {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        font: inherit;
-        vertical-align: baseline;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
 }
 
 
-
-
-
-
-
-h1 {
-        font-size: 15px;
-        font-weight: 700;
-        border-bottom: 1px solid #DDD;
-        margin: 0 0 .6em 0;
-        padding: 0 0 5px 0;
+html {   
 }
 
-h2 {
-        font-size: 135%
-}
-h3 { margin-top: 10px; font-size: 90%;}
+body {    
+            background: url(/bacc_grey_long.gif) repeat-y;
+            /* background-color: #e8e8e8;*/
 
-/*navcol 250
-contentcol 650px*/
-
-
-
-
-
-
-body {
-    background-image: url("bacc_strip_pink2.gif");
-     background-repeat: repeat-x;
-    background-color: #fff;
-    background-attachment: fixed;
-    background-position: top; 
-}
+ }
 
 header {
-    margin: 0;
-    padding-left: 20px;
-    width:100%;
-    height:100px; 
+            background-image: url(/blackBlogo.gif);
+            background-repeat: no-repeat;
+            margin: 0;
+            width:100%;
+            height: 150px;
 }
 
- .wrap { 
-    display: inline; 
-    clear: both; 
-    width: 100%;
+ #wrap { 
+            display: inline; 
+            clear: both; 
+            width: 700px;
+            border: 1px red dotted;
 }
 
  .aside { 
-    float: left; 
-    margin: 200px 0 0 100px;
-    width:10%;
+            float: left; 
+            margin: 100px 0 0 40px;
+            width:800px;
 
 }
 
   .col1 {
     float: left;
-    margin-top:200px;
+    margin-left: 20px;
+    margin-top:20px;
     padding-top: 0;
     width: 660px; 
     }
@@ -97,18 +75,38 @@ footer p {
 /* -------list madness -----------*/
 
 
-
-ul {    
-        margin:0;
-}
-
 li {    
         list-style-type: none; 
-        
 }
 
-#sitenav li {display: inline; font-size:10px;}
+#sitenav li {
+    display: inline; font-size:10px;
+}
 
+
+/* -------fonts -----------*/
+
+
+p, h1, h2, h3, p, {
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+   /* font-size: 22px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 26px;*/
+}
+
+
+h1 {
+        font-size: 15px;
+        font-weight: 700;
+        border-bottom: 1px solid #DDD;
+        margin: 0 0 .6em 0;
+        padding: 0 0 5px 0;
+}
+
+
+h3 { margin-top: 10px; font-size: 90%;}
 
 
 .current_time {
@@ -116,20 +114,8 @@ li {
     font-size: 11px;
 }
 
-
-/* -------fonts -----------*/
-
-
-h1, p, ul, li {
-    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-    font-size: 22px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 400;
-    line-height: 26px;
-}
-
-
+header h3 {margin-left: 550px;}
+/*
  h1.fancypants {
     color: #003; 
     text-decoration: none; 
@@ -138,36 +124,18 @@ h1, p, ul, li {
     line-height:32px;
     padding-left: 10%; 
 }
-
+*/
 .aside a, .aside a:hover {
     font-family: Arial,sans-serif;
-    font-size: 14px;
-    font-color: #b54848;
+    /*change to Century gothic look alike*/
+    font-size: 60px;
+    color: #8c8c99;
     font-weight:900;
-    line-height: 24px;
+    line-height: 86px;
+    text-decoration: none;
 
 }
 
+.aside img {margin-right: 20px;}
 
 
-@font-face {
-    font-family: '3dumbregular';
-    src: url('/3dumb-webfont.eot');
-    src: url('/3dumb-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/3dumb-webfont.woff2') format('woff2'),
-         url('/3dumb-webfont.woff') format('woff'),
-         url('/3dumb-webfont.ttf') format('truetype'),
-         url('/3dumb-webfont.svg#3dumbregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-p, h1, h2, h3 {
-    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-}
-
-.bookie {text-size: 140px; padding-left:25%;}
-
-.bookie-inline {
-    display:inline; text-size:72px;
-}

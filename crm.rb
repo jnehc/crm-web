@@ -1,15 +1,22 @@
 require 'sinatra'
 require_relative 'contact'
 require_relative 'rolodex'
+require 'date'
 
 
 @@rolodex = Rolodex.new  #class
 
-# # Temporary fake data so that we always find contact with id 1000.
-new_contact = Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rockstar")
-@@rolodex.add_contact(new_contact)
+# # # Temporary fake data so that we always find contact with id 1000.
+# new_contact = Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rockstar")
+# @@rolodex.add_contact(new_contact)
 
-
+get "/contacts" do
+  @contacts = []
+  @contacts << Contact.new("Yehuda", "Katz", "yehuda@example.com", "Developer")
+  @contacts << Contact.new("Mark", "Zuckerberg", "mark@facebook.com", "CEO")
+  @contacts << Contact.new("Sergey", "Brin", "sergey@google.com", "Co-Founder")
+  erb :contacts
+end
 
 
 
@@ -20,11 +27,11 @@ new_contact = Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rocksta
 # #create a new route for view/show_contact
 
 
-get "/contacts/:id" do
-  @contact = @@rolodex.find(params[:id].to_i)
-  erb :show_contact
-end
-#create more general version of above
+# get "/contacts/:id" do
+#   @contact = @@rolodex.find(params[:id].to_i)
+#   erb :show_contact
+# end
+#below is a more general version of above
 
 get "/contacts/:id" do
   @contact = @@rolodex.find(params[:id].to_i)
@@ -59,24 +66,41 @@ put "/contacts/:id" do
   end
 end
 
+#        Routes and PLACEHOLDERS   #
 
-get '/erasetest' do
-    erb :erasetest
+get '/' do
+    @crm_app_name = "myCRM"
+    erb :index
 end
 
 get '/' do
-	  @crm_app_name = "My Address Book"
-	  erb :index
+    @time = Time.new
+    erb :index
 end
 
 
+
 get '/contacts' do
-	erb :contacts
+  erb :contacts
 end
 
 
 get '/contacts/new' do
-	erb :new_contact
+  erb :new
+end
+
+
+get '/add_contact' do
+  erb :add_contact
+end
+
+
+get '/edit_contact' do
+  erb :edit_contact
+end
+
+get '/delete_contact' do
+  erb :delete_contact
 end
 
 
@@ -85,11 +109,10 @@ get "/contacts/:id/edit" do
 end
 
 
+
 # post '/contacts' do
 #   new_contact = Contact.new(first_name, params[:last_name], params[:email], params[:note])
 #   $rolodex.add_contact(new_contact)
 #    redirect to('/contacts')
 # end
-
-
 

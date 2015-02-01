@@ -9,35 +9,31 @@
  </head> 
  <body>
   <header>
-  <!--  <nav id="sitenav">
-    <ul> 
-      <li><a href="#">HOME</a></li>
-      <li><a href="#">OTHER STUFF</a></li>
-  </ul>
-    </nav> -->
-   <h3><%= @crm_app_name %></h3>
-    
-   
+      <!--  <nav id="sitenav">
+                <ul> 
+                  <li><a href="#">HOME</a></li>
+                  <li><a href="#">OTHER STUFF</a></li>
+                </ul>
+            </nav> -->
+       <h3><%= @crm_app_name %></h3>
+       <h3><%= @time %>. This is the time.</h3>
+        <!--do current time instead-->
     </header>
 
-
-<div class="aside">
-	<ul><li><a href="#">View all contacts</a></li>
-   <li><a href="#">Add a contact</a></li>
-   <li><a href="#">Modify a contact</a></li>
-   <li><a href="#">Delete a contact</a></li>
-</ul></div>
-
-<div class ="col1">
-<img src ="btn_add.gif" width="307" height="222" alt="add">
-<img src ="btn_edit.gif" width="307" height="222"alt="edit">
-<img src ="btn_delete.gif" width="307" height="222"alt="delete">
-<img src ="btn_make_note.gif" width="307" height="222"alt="note">
-</div>
+<div id ="wrap">W
+    <div class="aside">
+    	<ul>
+        <li><a href="/contacts"><img src ="btn_rectangle.gif">View Contacts</a></li>
+         <li><a href="/add_contact"><img src ="btn_rectangle.gif">Add</a></li>
+         <li><a href="/edit_contact"><img src ="btn_rectangle.gif">Modify</a></li>
+         <li><a href="/delete_contact"><img src ="btn_rectangle.gif">Delete a contact</a></li>
+    </ul></div>
 
 
 
 
-<footer> <p>2015</p></footer>
+  <footer> 
+    <p>2015</p>
+  </footer>
 </body>
 </html>
