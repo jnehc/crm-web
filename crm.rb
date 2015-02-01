@@ -4,11 +4,9 @@ require_relative 'rolodex'
 require 'date'
 
 
-@@rolodex = Rolodex.new  #class
+$rolodex = Rolodex.new  
+#global variable to have accesss to Rolodex from anywhere in your route blocks and views
 
-# # # Temporary fake data so that we always find contact with id 1000.
-# new_contact = Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rockstar")
-# @@rolodex.add_contact(new_contact)
 
 get "/contacts" do
   @contacts = []
@@ -34,7 +32,7 @@ end
 #below is a more general version of above
 
 get "/contacts/:id" do
-  @contact = @@rolodex.find(params[:id].to_i)
+  @contact = $rolodex.find(params[:id].to_i)
   if @contact
     erb :show_contact
   else
@@ -44,7 +42,7 @@ end
 #404
 
 get "/contacts/:id/edit" do
-  @contact = @@rolodex.find(params[:id].to_i)
+  @contact = $rolodex.find(params[:id].to_i)
   if @contact
     erb :edit_contact
   else
@@ -53,7 +51,7 @@ get "/contacts/:id/edit" do
 end
 
 put "/contacts/:id" do
-  @contact = @@rolodex.find(params[:id].to_i)
+  @contact = $rolodex.find(params[:id].to_i)
   if @contact
     @contact.first_name = params[:first_name]
     @contact.last_name = params[:last_name]
@@ -80,13 +78,13 @@ end
 
 
 
-get '/contacts' do
-  erb :contacts
-end
-
 
 get '/contacts/new' do
   erb :new
+end
+
+get '/contacts/new' do
+  erb :new_contact
 end
 
 
@@ -109,10 +107,12 @@ get "/contacts/:id/edit" do
 end
 
 
+# at the end of the file
 
-# post '/contacts' do
-#   new_contact = Contact.new(first_name, params[:last_name], params[:email], params[:note])
-#   $rolodex.add_contact(new_contact)
-#    redirect to('/contacts')
-# end
+post '/contacts' do
+  new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
+  $rolodex.add_contact(new_contact)
+    redirect to('/contacts')
+end
+
 
