@@ -14,13 +14,11 @@ class Rolodex
     @@ids += 1
   end
 
-#should return the first match for the block
   def find(id)
     @contacts.find {|contact| contact.id == contact_id }
   end
 
 
-#finish
 def modify_contact(id)
     contact_to_edit = find_contact(contact_id)
     puts "[1] Do you want to change the First Name?"
@@ -51,7 +49,7 @@ def modify_contact(id)
       contact_to_be_modified.note = new_note      
     
     else
-      puts "That isn't an option."
+      puts "That isn't an option. Try again."
     end
   end
 
