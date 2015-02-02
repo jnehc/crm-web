@@ -35,10 +35,7 @@ get '/' do
     erb :index
 end
 
-get "/contacts/1000" do
-  @contact = @@rolodex.find(1000)
-  erb :show_contact
-end
+
 
 get '/add_contact' do
   erb :add_contact
@@ -66,7 +63,6 @@ post '/contacts' do
   $rolodex.add_contact(new_contact)
     redirect to('/contacts')
 end
-
 
 
 #a new version of above with 404
