@@ -1,74 +1,33 @@
+require_relative './rolodex'
+require_relative './contact'
 require 'sinatra'
-require_relative 'contact'
-require_relative 'rolodex'
 require 'date'
+require 'sinatra/reloader'
 
 
-$rolodex = Rolodex.new  
+# $rolodex = Rolodex.new  
 #global variable to have accesss to Rolodex from anywhere in your route blocks and views
 
-
-get "/contacts" do
-  @contacts = []
-  @contacts << Contact.new("Yehuda", "Katz", "yehuda@example.com", "Developer")
-  @contacts << Contact.new("Mark", "Zuckerberg", "mark@facebook.com", "CEO")
-  @contacts << Contact.new("Sergey", "Brin", "sergey@google.com", "Co-Founder")
-  erb :contacts
-end
+# Temporary fake data so that we always find contact with id 1000.
+@@rolodex = Rolodex.new
+@@rolodex.add_contact (Contact.new("Yehuda", "Katz", "yehuda@example.com", "Developer"))
 
 
 
-# get "/contacts/1000" do
-#   @contact = @@rolodex.find(1000)
-#   erb :show_contact
-# end
-# #create a new route for view/show_contact
-
-
-# get "/contacts/:id" do
-#   @contact = @@rolodex.find(params[:id].to_i)
-#   erb :show_contact
-# end
-#below is a more general version of above
-
-get "/contacts/:id" do
-  @contact = $rolodex.find(params[:id].to_i)
-  if @contact
-    erb :show_contact
-  else
-    raise Sinatra::NotFound
-  end
-end
-#404
-
-get "/contacts/:id/edit" do
-  @contact = $rolodex.find(params[:id].to_i)
-  if @contact
-    erb :edit_contact
-  else
-    raise Sinatra::NotFound
-  end
-end
-
-put "/contacts/:id" do
-  @contact = $rolodex.find(params[:id].to_i)
-  if @contact
-    @contact.first_name = params[:first_name]
-    @contact.last_name = params[:last_name]
-    @contact.email = params[:email]
-    @contact.note = params[:note]
-
-    redirect to("/contacts")
-  else
-    raise Sinatra::NotFound
-  end
-end
-
-#        Routes and PLACEHOLDERS   #
 
 get '/' do
     @crm_app_name = "myCRM"
     erb :index
+end
+
+#view all
+get "/contacts" do
+  erb :contacts
+end
+
+# view one contact
+get '/contacts/new' do
+  erb :new_contact
 end
 
 get '/' do
@@ -76,17 +35,10 @@ get '/' do
     erb :index
 end
 
-
-
-
-get '/contacts/new' do
-  erb :new
+get "/contacts/1000" do
+  @contact = @@rolodex.find(1000)
+  erb :show_contact
 end
-
-get '/contacts/new' do
-  erb :new_contact
-end
-
 
 get '/add_contact' do
   erb :add_contact
@@ -116,3 +68,39 @@ post '/contacts' do
 end
 
 
+
+#a new version of above with 404
+get "/contacts/:id" do
+  @contact = @@rolodex.find(params[:id].to_i)
+  if @contact
+    erb :show_contact
+  else
+    raise Sinatra::NotFound
+  end
+end
+
+#404
+get "/contacts/:id/edit" do
+  @contact = @@rolodex.find(params[:id].to_i)
+  if @contact
+    erb :edit_contact
+  else
+    raise Sinatra::NotFound
+  end
+end
+
+#404
+#put "/contacts/:id/edit" do
+put "/contacts/:id" do
+  @contact = @@rolodex.find(params[:id].to_i)
+  if @contact
+    @contact.first_name = params[:first_name]
+    @contact.last_name = params[:last_name]
+    @contact.email = params[:email]
+    @contact.note = params[:note]
+
+    redirect to("/contacts")
+  else
+    raise Sinatra::NotFound
+  end
+end

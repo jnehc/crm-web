@@ -2,11 +2,12 @@
 
 <div class ="wrap">
 <ul>
-<% @contacts.each do |contact| %>
+<% @@rolodex.each do |contact| %>
   <li><%= contact.first_name %> <%= contact.last_name %></li>
 <% end %>
 </ul>
 
 
 </div>
-<!-- updates contacts to $rolodex -->`
+
+<!-- do I need global moving forward?  could  i replace with % @@rolodex.contacts.each_with_index do |contact, index| %  vs @contacts-->
