@@ -1,0 +1,14 @@
+<h1>View Contacts</h1>
+
+<ul>
+<% @contacts.each do |contact| %>
+  <li><%= contact.first_name %> <%= contact.last_name %></li>
+<% end %>
+</ul>
+
+<!--this was from old show contacts/view contacts the view all page-->
+<h1><%= @contact.first_name %> <%= @contact.last_name %></h1>
+<p><strong>Email:</strong> <%= @contact.email %></p>
+<p><strong>Note:</strong></p>
+<p><%= @contact.note %></p>
+
