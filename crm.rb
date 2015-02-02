@@ -1,8 +1,6 @@
 require_relative './rolodex'
 require_relative './contact'
 require 'sinatra'
-require 'date'
-require 'sinatra/reloader'
 
 
 # $rolodex = Rolodex.new  
@@ -10,8 +8,7 @@ require 'sinatra/reloader'
 
 # Temporary fake data so that we always find contact with id 1000.
 @@rolodex = Rolodex.new
-@@rolodex.add_contact (Contact.new("Yehuda", "Katz", "yehuda@example.com", "Developer"))
-
+@@rolodex.add_contact Contact.new("Yehuda", "Katz", "yehuda@example.com", "Developer")
 
 
 
@@ -25,15 +22,6 @@ get "/contacts" do
   erb :contacts
 end
 
-# view one contact
-get '/contacts/new' do
-  erb :new_contact
-end
-
-get '/' do
-    @time = Time.new
-    erb :index
-end
 
 
 
@@ -46,22 +34,28 @@ get '/edit_contact' do
   erb :edit_contact
 end
 
-get '/delete_contact' do
+
+get '/delete_contact/:id' do
   erb :delete_contact
 end
-
 
 get "/contacts/:id/edit" do
   erb :edit_contact
 end
 
+get '/contacts/delete_contact' do
+  erb :delete_contact
+end
 
-# at the end of the file
 
-post '/contacts' do
-  new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
-  $rolodex.add_contact(new_contact)
-    redirect to('/contacts')
+delete "/contacts/:id" do
+  @contact = @@rolodex.find(params[:id].to_i)
+  if @contact
+    @@rolodex.delete_contact(@contact)
+    redirect to("/contacts")
+  else
+    raise Sinatra::NotFound
+  end
 end
 
 
@@ -86,7 +80,7 @@ get "/contacts/:id/edit" do
 end
 
 #404
-#put "/contacts/:id/edit" do
+#will route will handle put request /form submit
 put "/contacts/:id" do
   @contact = @@rolodex.find(params[:id].to_i)
   if @contact
@@ -99,4 +93,15 @@ put "/contacts/:id" do
   else
     raise Sinatra::NotFound
   end
+end
+
+# view one contact
+get '/contacts/new' do
+  erb :new_contact
+end
+
+post '/contacts' do
+  new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
+  $rolodex.add_contact(new_contact)
+    redirect to('/contacts')
 end

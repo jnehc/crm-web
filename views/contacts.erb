@@ -2,8 +2,14 @@
 
 <div class ="wrap">
 <ul>
-<% @@rolodex.each do |contact| %>
-  <li><%= contact.first_name %> <%= contact.last_name %></li>
+
+
+<% @contacts.each do |contact| %>
+<li>
+
+	 		<a href="/contacts/<%= contact.id %>">Name: <%= contact.first_name %> <%= contact.last_name %> </a></li>
+	 		<li>Email: <%= contact.email %></li>
+	 		<li>Note: <%= contact.note %></li>
 <% end %>
 </ul>
 

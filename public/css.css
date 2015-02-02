@@ -15,9 +15,9 @@ body {
  }
 
 header {
-            background-image: url(/blackBlogo.gif);
+            background-image: url(/blackBooklogo.gif);
             background-repeat: no-repeat;
-            margin: 0;
+            margin: 20px 0 0 35px;
             width:100%;
             height: 150px;
 }
@@ -35,7 +35,7 @@ form input {margin-bottom: 20px;}
 
  .aside { 
             float: left; 
-            margin: 50px 0 0 0;
+            margin: 5px 0 0 0;
             width:800px;
 
 }
@@ -132,7 +132,12 @@ header h3 {margin-left: 550px;}
 }
 */
 
-a.home {text-align:right; text-decoration: none; font-size: 10px; font-family: Arial,sans-serif;}
+a.home {
+    text-align:right; 
+    text-decoration: none; 
+    font-size: 10px; 
+    font-family: Arial,sans-serif;
+}
 
 .aside a, .aside a:hover {
     font-family: Arial,sans-serif;
@@ -140,7 +145,7 @@ a.home {text-align:right; text-decoration: none; font-size: 10px; font-family: A
     font-size: 48px;
     color: #8c8c99;
     font-weight:900;
-    line-height: 56px;
+    line-height: 48px;
     text-decoration: none;
 
 }
